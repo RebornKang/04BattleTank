@@ -17,5 +17,5 @@ You're welcome to download, fork or do whatever else legal with all the files! T
 + Calling C++ code from Blueprint.
 + And much more.
 
-
+### 2 Game Design Document (GDD) ###
 
