@@ -2,12 +2,12 @@
 
 #pragma once
 
-#include "TankAimingComponent.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h" // Put new include above
 
 class UTankBarrel;
+class UTankAimingComponent;
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -27,8 +27,11 @@ protected:
 private:	
 	// Sets default values for this pawn's properties
 	ATank();
+
+	/*
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	*/
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	// Called to bind functionality to input
