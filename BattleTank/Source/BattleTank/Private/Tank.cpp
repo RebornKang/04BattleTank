@@ -3,6 +3,8 @@
 #include "TankBarrel.h"
 #include "Projectile.h"
 #include "TankAimingComponent.h"
+#include "TankMovementComponent.h"
+ 
 #include "Tank.h"
 
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
