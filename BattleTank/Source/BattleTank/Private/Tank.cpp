@@ -3,7 +3,6 @@
 #include "TankBarrel.h"
 #include "Projectile.h"
 #include "TankAimingComponent.h"
-#include "TankMovementComponent.h"
  
 #include "Tank.h"
 
@@ -29,13 +28,15 @@ ATank::ATank()
 }
 
 // Called when the game starts or when spawned
-/*
+
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
+
+	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 	
 }
-*/
+
 
 // Called every frame
 /*
@@ -55,7 +56,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ATank::AimAt(FVector HitLocation)
 {
-	if (!TankAimingComponent) { return; }
+	if (!ensure(TankAimingComponent)) { return; }
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 	/*
 	auto OurTankName = GetName();
@@ -65,10 +66,10 @@ void ATank::AimAt(FVector HitLocation)
 
 void ATank::Fire()
 {
+	if (!ensure(Barrel)) { return; }
 	bool isReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
-	if (!Barrel) { return; }
 
-	if (Barrel && isReloaded)
+	if (isReloaded)
 	{
 		//Spawn a projectile at the sorket location on the barrel
 		auto Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation(FName("Projectile")), Barrel->GetSocketRotation(FName("Projectile")));

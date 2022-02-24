@@ -9,7 +9,6 @@
 class UTankTurret;
 class UTankBarrel;
 class UTankAimingComponent;
-class UTankMovementComponent;
 class AProjectile;
 
 UCLASS()
@@ -36,9 +35,6 @@ protected:
 	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
-	UPROPERTY(BlueprintReadOnly)
-	UTankMovementComponent* TankMovementComponent = nullptr;
-
 private:	
 	// Sets default values for this pawn's properties
 	ATank();
@@ -48,7 +44,7 @@ private:
 	virtual void Tick(float DeltaTime) override;
 	*/
 	// Called when the game starts or when spawned
-	// virtual void BeginPlay() override;
+	virtual void BeginPlay() override;
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
