@@ -5,6 +5,12 @@
 #include "Kismet/GameplayStatics.h"
 #include "TankAimingComponent.h"
 
+void UTankAimingComponent::Initialize(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
+{
+	Barrel = BarrelToSet;
+	Turret = TurretToSet;
+}
+/*
 void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	if (!BarrelToSet) { return; }
@@ -16,6 +22,7 @@ void UTankAimingComponent::SetTurretReference(UTankTurret* TurretToSet)
 	if (!TurretToSet) { return; }
 	Turret = TurretToSet;
 }
+*/
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
